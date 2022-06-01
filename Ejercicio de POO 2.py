@@ -21,7 +21,7 @@ class Tweet:
 
     def ayuda(self):
         self.n=self.n+1
-        print(self.n)
+        
 
 
 
@@ -34,10 +34,10 @@ class DirectMessage(Tweet):
 class Retweet(Tweet):
 
     def __init__(self,tweet,resender):
-        #self.time=tweet.time
+        x1=tweet.time
         super().__init__(tweet.message,tweet.sender)
         self.resender = resender
-        
+        self.time = x1
         resend_time = datetime.datetime.today()
         self.resend_time = resend_time
 
@@ -45,7 +45,7 @@ class Retweet(Tweet):
 
 
 tweet1 = Tweet("hola","Jorge")
-#tweet2 = DirectMessage("soy raul","Raúl","Jorge")
+tweet2 = DirectMessage("soy raul","Raúl","Jorge")
 n= int(input("pulse 1 si dese retweet"))
 if n==1:
     tweet3 = Retweet(tweet1,"Raúl")
@@ -56,10 +56,10 @@ print(tweet1.sender)
 print(tweet1.time)
 
 
-#print(tweet2.message)
-#print(tweet2.sender)
-#print(tweet2.time)
-#print(tweet2.receiver)
+print(tweet2.message)
+print(tweet2.sender)
+print(tweet2.time)
+print(tweet2.receiver)
 
 
 print(tweet3.message)
