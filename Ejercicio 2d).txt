@@ -1,8 +1,9 @@
 2d i)los atributos "tweets" y "timeline" para mi caso en particular, no deberán ser modificados ya que simplemente recibirán un tweet con
 dos datos más el usuario que hizo retweet y a la hora en la que se hizo retweet, por lo que estos atributos no tienen ningún problema recibiendo 
 esto. Si que habría que tener en cuenta que en en el ejercicio 2 la fecha se crea mediante la clase Date y no se pasa como una variable, por
-lo que habría que utilizar el método adecuado para pasarlo como una variable a los atributos "tweets" y "timeline". (En el caso de que fuera
-la clase DirectMessage y no Retweet si que habría que hacer modificaciones a timeline, pero ese no es el caso).
+lo que habría que utilizar el método adecuado para pasarlo como una variable a los atributos "tweets" y "timeline". También habría que
+asegurarse de que las fechas se pasan como el primer elemento y en el formato dd/mm/YY ya que si no la funcion organizar timeline tendrá errores.
+(En el caso de que fuera la clase DirectMessage y no Retweet si que habría que hacer modificaciones a timeline, pero ese no es el caso).
 
 2d ii) en este caso si que tendríamos un error, ya que si le pasasemos un retweet también le pasaríamos el "resender" que en la función se vuelve 
 a añadir por lo que en el caso de que recibise un retweet debería abstenerse de volver a añadir el resender. Podríamos ver que se trata de un 
