@@ -4,8 +4,7 @@ esto. Si que habría que tener en cuenta que en en el ejercicio 2 la fecha se cr
 lo que habría que utilizar el método adecuado para pasarlo como una variable a los atributos "tweets" y "timeline". (En el caso de que fuera
 la clase DirectMessage y no Retweet si que habría que hacer modificaciones a timeline, pero ese no es el caso).
 
-2d ii) igual que en el apartado anterior no era necesario cambiar el codigo del ejercicio 1 pero si el como se pasa del ejercicio 2; en este
-ocurre lo mismo. Simplemente se encontrará que los "tweets"(del usuario) y "timelines"(de sus followers) se hallarán con un tweet con dos 
-nuevas especificaciones, pero esto no invoca ningún problema ya que al usar el método ya se sabe los followers que tiene el usuario, 
-por lo tanto ya sabe a quien mandarlo. (Igual que en el anterior si habría que modificar el método si se tratase de la clase DirectMessage
-ya que no sabría como interpretar el "receiver" pero tampoco es el caso)
+2d ii) en este caso si que tendríamos un error, ya que si le pasasemos un retweet también le pasaríamos el "resender" que en la función se vuelve 
+a añadir por lo que en el caso de que recibise un retweet debería abstenerse de volver a añadir el resender. Podríamos ver que se trata de un 
+retweet y no un tweet iterando por los elementos del retweet y viendo que tiene más de los dos elementos que suele tener un tweet normal y 
+corriente.
