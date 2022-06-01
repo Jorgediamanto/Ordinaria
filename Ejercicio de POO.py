@@ -1,14 +1,17 @@
+import datetime
+
 class UserAccount:
     usuarios = []
 
     def __init__(self, alias, email, tweets, followers, timeline):
-        self.alias = alias #string {es un nombre}
-        self.email = email #string {es un email}
-        self.tweets = tweets #List of strings [time(string)/message(string)/sender(string)]  {cada tweet tiene 3 componentes, por lo que un tweet estará compuesto por 3 string independientes, lo único que en este caso el sender es el mismo}   
-        self.followers = followers #List of strings [lista de alias]  {lista de nombres de los seguidores}
-        self.timeline = timeline #List of strings [time(string)/message(string)/sender(string)]   {lo mismo que en los tweets, pero esta vez si hay diferentes senders}
+        self.alias = alias
+        self.email = email
+        self.tweets = tweets
+        self.followers = followers
+        self.timeline = timeline
         self.usuarios.append(self)
 
+    #este método recibe la instancia del usuario al que desea seguir
     def follow(self, user):
         f=0
         for x in range(len(user.followers)):
@@ -23,6 +26,7 @@ class UserAccount:
             user.followers.extend([self.alias])
             self.timeline.extend(user.tweets)
 
+    #este metodo recibe el tweet que se desea publicar
     def tweet(self,tweet):
         tweet.extend([self.alias])
         self.tweets.extend([tweet])
@@ -31,8 +35,24 @@ class UserAccount:
                 if self.usuarios[x].alias == self.followers[y]:
                     self.usuarios[x].timeline.extend([tweet])
 
-    def organizar_timeline(self): #organiza timelibne por fecha publicado
-        pass
+    def organizar_timeline(self): #organiza timeline por fecha publicado (mas reciente a menos como twitter)
+        
+        x11 = []
+        for x in range(len(self.timeline)):
+            time_datetime = datetime.datetime.strptime(self.timeline[x][0], "%d/%m/%Y")
+            x11.append(time_datetime)
+
+        x11.sort()
+        x12=[]
+        for y in range(len(self.timeline)):
+            for z in range(len(self.timeline)):
+                time_datetime = datetime.datetime.strptime(self.timeline[z][0], "%d/%m/%Y")
+                if time_datetime==x11[y]:
+                    x12.append(self.timeline[z])
+            
+        x12.reverse()
+        self.timeline = x12
+        
 
     def organizar_followers(self): #organiza followers en orden alfabetico
         pass
@@ -42,10 +62,11 @@ user2 = UserAccount("user2","user2@gmail.com",[["12/10/2022","VIVA SALAMANACA","
 user3 = UserAccount("user3","user3@gmail.com",[["12/10/2022","nadie me sigue sadge","user1"]],[],[])
 
 
-tweet1=["07/75/2022","Rabadins"]
+tweet1=["07/05/2022","Rabadins"]
 
+user1.follow(user3)
 user2.tweet(tweet1)
-
+user2.follow(user3)
 
 print("\n")
 print(user1.followers)
@@ -62,6 +83,9 @@ print(user3.followers)
 print(user3.tweets)
 print(user3.timeline)
 
+print(user2.timeline)
+user2.organizar_timeline()
+print(user2.timeline)
 
 
 
