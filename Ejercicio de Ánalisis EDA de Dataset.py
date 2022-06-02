@@ -54,6 +54,11 @@ modifiedTrain.isnull().sum() #se verifica que se han eliminado los valores nulos
 
 modifiedTrain.to_csv('modifiedTrain.csv',index=False) #devuelve el csv sin los valores nulos
 
+x111 = len(train.index)
+
+fig = px.funnel(modifiedTrain, x='x11', y='sentiment',color=funcion_auxiliar_colores())
+fig.show()
+
 
 
 
