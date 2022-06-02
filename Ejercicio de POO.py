@@ -37,6 +37,7 @@ class UserAccount:
             for y in range(len(self.followers)):
                 if self.usuarios[x].alias == self.followers[y]:
                     self.usuarios[x].timeline.extend([tweet])
+                    self.usuarios[x].organizar_timeline()
 
     def organizar_timeline(self): #organiza timeline por fecha publicado (mas reciente a menos como twitter)
         
@@ -60,41 +61,21 @@ class UserAccount:
     def organizar_followers(self): #organiza followers en orden alfabetico
         self.followers.sort()
 
-user1 = UserAccount("user1","user1@gmail.com",[["13/10/2022","Hola he nacido","user1"],["12/10/2022","Primer dia con vida pog","user1"]],["user2"],[["02/11/2012","solvaje","user2"]])
-user2 = UserAccount("user2","user2@gmail.com",[["02/11/2012","VIVA SALAMANACA","user2"]],["user1"],[["13/10/2022","Hola he nacido","user1"],["12/10/2022","Primer dia con vida pog","user1"]])
-user3 = UserAccount("user3","user3@gmail.com",[["12/10/2012","nadie me sigue sadge","user1"]],[],[])
+user1 = UserAccount("user1","user1@gmail.com",[["12/10/2022","Hola he nacido","user1"],["13/10/2022","Primer dia con vida pog","user1"]],["user2"],[["02/11/2011","solvaje","user2"]])
+user2 = UserAccount("user2","user2@gmail.com",[["02/11/2011","solvaje","user2"]],["user1"],[["12/10/2022","Hola he nacido","user1"],["13/10/2022","Primer dia con vida pog","user1"]])
+user3 = UserAccount("user3","user3@gmail.com",[["12/10/2012","nadie me sigue sadge","user3"]],[],[])
 
 
 tweet1=["07/05/2022","Rabadins"]
 
 user2.tweet(tweet1)
 user2.follow(user3)
-user1.follow(user3)
+#user1.follow(user3)
 
-print("\n")
-print(user1.followers)
-print(user1.tweets)
+
+
+
 print(user1.timeline)
-
-print("\n")
-print(user2.followers)
-print(user2.tweets)
-print(user2.timeline)
-
-print("\n")
-print(user3.followers)
-print(user3.tweets)
-print(user3.timeline)
-
-print(user2.timeline)
-user2.organizar_timeline()
-print(user2.timeline)
-
-
-
-print(user3.followers)
-user3.organizar_followers()
-print(user3.followers)
 
 
 
