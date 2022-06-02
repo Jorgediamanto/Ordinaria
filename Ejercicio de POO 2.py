@@ -65,7 +65,7 @@ if n==1:
 
 #print(tweet1.message)
 #print(tweet1.sender)
-#print(tweet1.time)
+print(tweet1.time)
 
 
 #print(tweet2.message)
@@ -76,9 +76,9 @@ if n==1:
 
 #print(tweet3.message)
 #print(tweet3.sender)
-#print(tweet3.time)
+print(tweet3.time)
 #print(tweet3.resender)
-#print(tweet3.resend_time)
+print(tweet3.resend_time)
 
 
 #print("\n")
