@@ -36,6 +36,11 @@ def funcion_auxiliar_colores(): #crea un color aleatorio con sus tres componente
     rgb = [r,g,b]
     return rgb
 
+def jaccard(str1, str2):
+    a = set(str1.lower().split())
+    b = set(str2.lower().split()) 
+    c = a.intersection(b) 
+    return float(len(c)) / (len(a) + len(b) - len(c)) 
 
 train = pd.read_csv('/kaggle/input/tweet-sentiment-extraction/train.csv')
 test = pd.read_csv('/kaggle/input/tweet-sentiment-extraction/test.csv') 
